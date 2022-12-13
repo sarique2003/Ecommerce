@@ -23,10 +23,10 @@ export default function CollectionPage({products, collectionName}) {
 
 export const getServerSideProps = async ({params}) => {
   const { collectionName } = params
-  // Fetch all the collections
+  // Fetching all the collections
   const collectionsData = await shopifyClient.collection.fetchAllWithProducts();
   const collections = parseShopifyResponse(collectionsData);
-  // Get the right one
+  // Getting the right one
   const collection = collections.find(collection => collection.handle === collectionName)
 
   return {
